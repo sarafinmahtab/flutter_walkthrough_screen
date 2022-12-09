@@ -167,7 +167,7 @@ class IntroScreen extends StatefulWidget {
       required this.skipButton});
 
   void skipPage(BuildContext context) {
-    Navigator.push(context, pageRoute!);
+    Navigator.pushReplacement(context, pageRoute!);
   }
 
   @override
