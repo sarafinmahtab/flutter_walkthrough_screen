@@ -243,13 +243,9 @@ class IntroScreenState extends State<IntroScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
-                  TextButton(
+                  GestureDetector(
                     child: lastPage ? Text("") : widget.skipButton,
-                    onPressed: () => lastPage
-                        ? null
-                        : widget.skipPage(
-                            context,
-                          ),
+                    onTap: () => lastPage ? null : widget.skipPage(context),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -260,9 +256,9 @@ class IntroScreenState extends State<IntroScreen> {
                               (index) => _buildPageIndicator(index))),
                     ),
                   ),
-                  TextButton(
+                  GestureDetector(
                     child: lastPage ? widget.lastButton : widget.nextButton,
-                    onPressed: () => lastPage
+                    onTap: () => lastPage
                         ? widget.skipPage(context)
                         : controller.nextPage(
                             duration: Duration(milliseconds: 300),
